@@ -1,0 +1,17 @@
+# axiom-ai-code: companion code for axiom-ai.tech
+#
+# Install PyTorch and torchvision FIRST, from https://pytorch.org/get-started/locally/
+# so that you get the right build for your GPU (or for no GPU). The torch lines
+# below only check that a recent enough version is present; if it is, pip leaves
+# your build alone.
+#
+# Tested with Python 3.12 on Windows.
+
+# --- shared across posts ----------------------------------------------------
+torch>=2.0            # tested with 2.11.0 (CUDA 12.8)
+torchvision>=0.15     # tested with 0.26.0
+matplotlib>=3.7       # tested with 3.11.0
+pillow>=10.0          # tested with 12.3.0
+jupyter               # tested with 1.1.1; VS Code users need only ipykernel
+
+# --- generative-ai/vision/02-vision-transformer -------------------------------

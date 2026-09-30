@@ -1,0 +1,36 @@
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# --- Environments and secrets ----------------------------------------------
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# --- Jupyter ----------------------------------------------------------------
+.ipynb_checkpoints/
+
+# --- Editors and operating systems --------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- This repository --------------------------------------------------------
+# Figures are made by the notebooks, so they aren't kept here.
+# Convention: inputs are photo-*, outputs are figure-*.
+figure-*.png
+
+# Model weights live in the torch / Hugging Face caches, never in the repo.
+*.pt
+*.pth
+*.ckpt
+*.safetensors
