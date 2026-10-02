@@ -13,7 +13,7 @@ The Vision Transformer's paper has a small box in the corner of its first figure
 ## What the notebook does
 
 1. **Setup.** Imports, the folder, and the device.
-2. **What the model sees.** The photograph is resized, cropped to a 224 × 224 square from the centre, and cut into a 14 × 14 grid of 16-pixel squares: 196 patches.
+2. **What the model sees.** Each photograph is first cut to its central square, so the figures line up. Then, as the model does, it is resized, a 224 × 224 square is kept from the centre, and that square is cut into a 14 × 14 grid of 16-pixel squares: 196 patches.
 3. **From squares to tokens.** One convolution turns each square into a list of 768 numbers, a token. A class token joins at the front, and every token gets a learned position. The cell checks that these steps match what the library does itself.
 4. **The answer.** The model gives a probability for each of its 1,000 labels, and we print the top five.
 5. **A second photograph.** The same steps, on the squirrel.
@@ -21,9 +21,11 @@ The Vision Transformer's paper has a small box in the corner of its first figure
 
 ## What I saw
 
-On the beetle, the model answered *leaf beetle* with 75.7%. Its other four guesses were insects too, which is a fair result for a beetle that covers about a dozen of the 196 squares.
+## What I saw
 
-On the squirrel, it answered *capuchin* (33.7%), then *marmoset*, *macaque* and *titi*. The nearest it came to the right word was *squirrel monkey*, at 3.6%. Cell 6 suggests why. The list names six beetles, and two squirrels, one of which is a monkey. The model can only answer with the words it has, so it chose the ones whose pictures looked most like this one: a small animal, upright in a tree, holding food with both hands. The squirrel would like it noted that he is not a capuchin.
+On the beetle, the model answered *leaf beetle* with 75.3%. Its other four guesses were *tiger beetle*, *fly*, *ground beetle* and *bee*: all insects, which is a fair result for a beetle that covers about a dozen of the 196 squares.
+
+On the squirrel, it answered *marmoset*, but with only 9.8%, followed by *mongoose* (5.6%), *boa constrictor* (4.5%), *macaque* (4.4%) and *capuchin* (4.0%). No squirrel in all five. Cell 6 suggests why: the list names six beetles, and two squirrels, one of which is a monkey. The model can only answer with the words it has, and here it is plainly unsure, with its best guess under one in ten. It reached for small animals that live in trees, and one snake. The squirrel would like it noted that he is not a marmoset, and certainly not a boa constrictor.
 
 Your numbers should match these closely. A different GPU, or a CPU, can change the last decimal place.
 
